@@ -26,11 +26,13 @@
     .search-bar-container{
         display: none;
     }
-    
+    .bottom-nav{
+        height: 60px;
+    }
 }
 
 /* Mobile Regular */
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px /*480px*/) and (max-width: 47.93rem/*767px*/) {
     /* Styles for mobile phones */
     html{
         font-size: 43%;
@@ -44,7 +46,7 @@
     .menu-icon{
         display: block;
     }
-    .footer-container{
+    footer{
         display: none;
     }
     .bottom-nav{
@@ -52,6 +54,12 @@
     }
     .search-bar-container{
         display: none;
+    }
+    .product-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .bottom-nav{
+        height: 70px;
     }
 }
 
