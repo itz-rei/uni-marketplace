@@ -80,9 +80,8 @@ form{
 
 }
 .forgot-link{
-    display: flex;
-    justify-content: space-between;
     margin: -15px 0 15px;
+    text-align: left;
 }
 .forgot-link a{
     font-size: 13.5px;
@@ -102,9 +101,17 @@ form{
     color: #fff;
     font-weight: 600;
 }
+.exit-btn{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
 .container p{
     font-size: 14.5px;
-    margin: 15px 0;
+    margin: 8px 0;
+    margin-left: 10px;
 
 }
 .social-icons{

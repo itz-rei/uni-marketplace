@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Management</title>
+  <link rel="stylesheet" href="user-profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="profile-container">
+  <!-- Profile Sidebar -->
+  <aside class="profile-sidebar">
+    <div class="profile-pic">
+      <img src="images/default-user.png" alt="User Picture" id="profileImage">
+      <label for="uploadProfilePic" class="upload-btn">Change Photo</label>
+      <input type="file" id="uploadProfilePic" accept="image/*" hidden>
+    </div>
+    <h2 id="usernameDisplay">John Doe</h2>
+    <p id="emailDisplay">john.doe@email.com</p>
+    <nav class="profile-nav">
+      <a href="#account">Account</a>
+      <a href="#security">Security</a>
+      <a href="#my-products">My Products</a>
+      <a href="#settings">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Profile Content -->
+  <section class="profile-content">
+    <h1>Manage Your Profile</h1>
+    <form id="profileForm">
+      <div class="form-group">
+        <label for="username">Full Name</label>
+        <input type="text" id="username" value="John Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" value="john.doe@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" value="0912-345-6789">
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea id="bio" rows="3" placeholder="Write something about yourself..."></textarea>
+      </div>
+
+      <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+  </section>
+</div>
+
+<script src="user-profile.js"></script>
+</body>
+</html>

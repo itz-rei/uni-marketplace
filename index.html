@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Marketplace</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="queries.css">
+    <link rel="stylesheet" href="product-form.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,29 +27,27 @@
                     </form>
                 </div>
                 <ul class="nav-menu">
-                    <li><a class="nav-link" href="">Home</a></li>
-                    <li><a class="nav-link" href="">About</a></li>
-                    <li><a class="nav-link" href="">Notifications</a></li>
-                    <li><a class="btn btn-primary-outline" href="LogIn.html">Login</a></li>
-                    <!-- <li><a class="btn btn-primary" href="">Register</a></li> -->
+                    <li><a class="nav-link js-home-btn" href="index.html">Home</a></li>
+                    <li><a class="nav-link">About</a></li>
+                    <li><a class="nav-link"><ion-icon class="cart-icon" name="cart-outline"></ion-icon></a></li>
+                    <li><a class="btn btn-primary-outline">My Profile</a></li>
                 </ul>
                 <div class="menu-icon">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
             </nav>
-    
-        </header>
-        <!-- main section -->
-        <main>
-            <!-- HERO SECTION -->
             <section class="hero-heading">
                 <h1><span class="highlight highlight-primary">Everything You Need</span>—All in <br> One App 📱</h1>
                 <p class="hero-paragraph">Skip the hassle. Find products near you and support your campus vendors with ease.</p>
-                <div class="">
+                <div class="cta-btn">
                     <a class="loc-btn loc-primary" href="">Track Near Vendor📍</a>
+                    <a class="loc-btn sell-primary js-add-product-btn" href="">Sell a product here</a>
                 </div>
             </section>
-            <section class="categories-section">
+        </header>
+        <!-- main section -->
+        <section id="home-section">
+            <div class="categories-section">
                 <h2>Categories</h2>
                 <div class="categories-container">
                     <div class="category-card">
@@ -77,28 +75,64 @@
                         <p>Sports & Outdoors</p>
                     </div>
                 </div>
-             </section>
-
-            <section class="product-section">
-            <h3>Today's Picks</h3>
-            <div class="product-container js-product-container">
-                
-                <!-- Repeat this card for multiple products -->
             </div>
+            <div class="product-section">
+            <h3>Today's Picks</h3>
+            <div id="todaysPick" class="product-container js-product-container"></div>
+            </div>
+        </section>
+        <!-- ADD PRODUCT FORM -->
+        <section id="productFormSection">
+            <div class="product-spa">
+                <div class="product-form-container js-product-form">
+                    <!-- LEFT: Preview -->
+                    <div class="preview-container">
+                        <h3>Preview</h3>
+                        <img id="imagePreview" src="" alt="Product Preview" style="display:none;">
+                        <p class="placeholder-text">Image will appear here</p>
+                        <h4 id="previewTitle">Product Title</h4>
+                        <p id="previewPrice">₱0.00</p>
+                        <p id="previewDescription">Product description will appear here.</p>
+                    </div>
+                    <!-- RIGHT: Form -->
+                    <form id="productForm" class="product-form" action="">
+                        <h2>Listing Product</h2>
 
-            </section>
-            
-        <!-- call to action Section -->
-        <!-- Features Section -->
-        </main>
-        <!-- footer -->
+                        <label for="image">Select an Image:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+
+                        <label for="name">Title:</label>
+                        <input type="text" id="name" placeholder="Enter a product name" required>
+
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" placeholder="Enter the price" min="1" required>
+
+                        <label for="description">Product Description:</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
+
+                        <label for="category">Category:</label>
+                        <select name="category" id="category" required>
+                            <option value="">Select Category</option>
+                            <option>Food & Beverages</option>
+                            <option>Handmade</option>
+                            <option>School Supplies</option>
+                            <option>Clothing</option>
+                            <option>Personal Care</option>
+                            <option>Sports & Outdoors</option>
+                        </select>
+                        <button class="post-product-btn" type="submit">Post Product</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
                 <h5>Unimart Campus Marketplace</h5>
                 <p>© 2025 All Rights Reserved</p>
             </div>
-
             <div class="footer-links">
                 <h5>Quick Links</h5>
                 <a href="#">Home</a>
@@ -107,20 +141,17 @@
                 <a href="#">Terms</a>
                 <a href="#">Privacy</a>
             </div>
-
             <div class="footer-contact">
                 <h5>Contact Information</h5>
                 <p>Email: campusmarket@ustl.edu</p>
                 <p>Phone: 0912-345-6789</p>
             </div>
-
             <div class="footer-social">
                 <h5>Social Medias</h5>
                 <a href="#"><img src="images/3225194_app_facebook_logo_media_popular_icon.svg" alt="Facebook"></a>
                 <a href="#"><img src="images/1298747_instagram_brand_logo_social media_icon.svg" alt="Instagram"></a>
                 <a href="#"><img src="images/1851693_media_network_social_social media_video_icon.svg" alt="YouTube"></a>
             </div>
-
             <div class="footer-language">
                 <label for="language">Language:</label>
                 <select id="language">
@@ -130,8 +161,7 @@
             </div>
         </div>
     </footer>
-        <!-- mobile-bottom-nav -->
-
+    <!-- mobile-bottom-nav -->
     <nav class="bottom-nav">
         <ul class="bottom-nav-menu">
             <li><a href="#"><img src="images/home.svg" alt=""><span>Home</span></a></li>
@@ -141,9 +171,8 @@
             <li><a href="#"><img src="images/user-outline.svg" alt=""><span>Profile</span></a></li>
         </ul>
     </nav>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script src="script.js"></script>
-
-    </body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

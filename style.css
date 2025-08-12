@@ -162,9 +162,6 @@ span{
 /*----------------COPONENTS----------------*/
 /*----------------SECTIONS----------------*/
 /* HEADER (NAV BAR + HERO SECTION) */
-.header{
-    border-bottom: 2px solid #ccc;
-}
 .logo{
     width: 80px;
 }
@@ -174,7 +171,7 @@ span{
     padding: 1.2rem 2.7rem;
     border-radius: 50px;
 }
-.btn-primary:link, .btn-primary:visited{
+.btn-primary, .btn-primary{
     color: var(--white);
     background-color: var(--primary-shade);
     border: 2px solid var(--primary-shade);
@@ -184,7 +181,7 @@ span{
     background-color: var(--primary-base);
     border: 2px solid var(--primary-base);
 }
-.btn-primary-outline:link, .btn-primary-outline:visited{
+.btn-primary-outline, .btn-primary-outline{
     color: var(--primary-base);
     background-color: var(--white);
     border: 2px solid var(--primary-base);
@@ -201,11 +198,12 @@ span{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #ccc;
 }
 .nav-menu{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
 }
 .menu-icon{
     font-size: 4rem;
@@ -217,6 +215,9 @@ span{
 }
 .nav-link{
     color: var(--grey-shade)
+}
+.cart-icon{
+    font-size: 35px;
 }
 .nav-link:hover{
     color: var(--tirtiary-shade);
@@ -284,14 +285,10 @@ span{
 }
 
 /* Show bottom nav on mobile & tablet */
-
-
-
 /* hero section */
 .hero-heading{
     /* height: calc(100vh - var(--nav-height)); */
     text-align: center;
-    margin-bottom: 1rem;
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
@@ -309,13 +306,26 @@ span{
     font-size: var(--text-paragraph);
     margin: 0 2.5rem;
 }
-.loc-primary{
+.loc-primary, .sell-primary{
   margin-top: 15px;
   font-size: var(--text-base);
   text-decoration: none;
   padding: 1.2rem 2rem;
   border-radius: 20px;
-
+}
+.sell-icon{
+    font-size: 20px;
+}
+.cta-btn{
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    justify-content: center;
+}
+.sell-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .loc-btn:link, .loc-btn:visited{
     color: var(--white);

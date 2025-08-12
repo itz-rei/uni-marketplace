@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.profile-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.profile-sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  text-align: center;
+}
+
+.profile-sidebar .profile-pic img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload-btn {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4a6cf7;
+  cursor: pointer;
+}
+
+.profile-sidebar h2 {
+  margin: 10px 0 5px;
+}
+
+.profile-sidebar p {
+  color: #666;
+  font-size: 14px;
+}
+
+.profile-sidebar .profile-nav {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-sidebar .profile-nav a {
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.profile-sidebar .profile-nav a:hover {
+  background: #f0f0f0;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.profile-content h1 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.save-btn {
+  background: #4a6cf7;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #3d5ad6;
+}
