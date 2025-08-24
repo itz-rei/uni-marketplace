@@ -3,89 +3,117 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             image: 'images/product-lists/—Pngtree—metal ball pen vector_15339954 (1).png',
             name: 'Ballpen',
-            price: 500
+            description: "brand new",
+            price: 500,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/flower.jpg',
             name: 'Sunflower Bouquet',
-            price: 500
+            description: "brand new",
+            price: 500,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/starbucks-kids-drinks.jpg',
             name: 'Starbuck Coffee',
-            price: 250
+            description: "sinipsipan na",
+            price: 250,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/Breakfast-Pastries-Platter-scaled.jpg',
             name: 'Pastries',
-            price: 480
+            description: "new baked",
+            price: 480,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/school-supplies.jpg',
             name: 'School Supplies',
-            price: 500
+            description: "all goods",
+            price: 500,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image:'images/product-lists/notebooks.jpg',
             name: 'Notebooks',
-            price: 57
+            description: "1 page lang",
+            price: 57,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/soccer-ball.jpg',
             name: 'Soccer Ball',
-            price: 900
+            description: "brand new",
+            price: 900,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/labubu-doll.jpg',
             name: 'Labubu Doll',
-            price: 2000
+            description: "brand new",
+            price: 2000,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/keychains.jpg',
             name: 'Keychains',
-            price: 50
+            description: "handmade",
+            price: 50,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/flower-keychains.jpg',
             name: 'Flower Keychains',
-            price: 95
+            description: "handmade",
+            price: 95,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/sunscreen.jpg',
             name: 'Y.O.U Sunscreen',
-            price: 499
+            description: "original",
+            price: 499,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         },
         {
             image: 'images/product-lists/sphagetti.jpg',
             name: 'Spaghetti',
-            price: 50
+            description: "pulang bulati",
+            price: 50,
+            seller: 'reinald belen',
+            messenger: 'reinald.belen'
         }
     ];
 
     const productContainer = document.querySelector('.js-product-container');
-
-    // Function to render initial products
-    function renderProducts() {
-        productContainer.innerHTML = '';
-        products.forEach(product => {
-            const card = `
-                <div class="product-card">
-                    <img class="product-img" src="${product.image}" alt="${product.name}">
-                    <div class="product-info">
-                        <h5>${product.name}</h5>
-                        <p class="price">₱${product.price}</p>
-                    </div>
-                </div>
-            `;
-            productContainer.insertAdjacentHTML('beforeend', card);
-        });
-    }
-    renderProducts();
-
-    // Sections
     const productFormSection = document.getElementById('productFormSection');
     const mainSection = document.getElementById('home-section');
     const sellProductBtn = document.querySelector('.js-add-product-btn');
+
+    // Modal selectors
+    const detailsModal = document.getElementById('productDetailsModal');
+    const closeDetailsModal = document.getElementById('closeDetailsModal');
+    const modalProductImg = document.getElementById('modalProductImg');
+    const modalProductName = document.getElementById('modalProductName');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const modalProductDesc = document.getElementById('modalProductDesc');
+    const modalSellerName = document.getElementById('modalSellerName');
+    const modalSellerContact = document.getElementById('modalSellerContact');
+    const addToListBtn = document.getElementById('addToListBtn');
+    const contactSellerBtn = document.getElementById('contactSellerBtn');
 
     // Hide form initially
     productFormSection.style.display = 'none';
@@ -96,6 +124,71 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         productFormSection.style.display = 'block';
         mainSection.style.display = 'none';
+        detailsModal.style.display = 'none';
+        productFormSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Render products with data-index
+    function renderProducts() {
+        productContainer.innerHTML = '';
+        products.forEach((product, index) => {
+            const card = `
+                <div class="product-card js-product-card" data-index="${index}">
+                    <img class="product-img" src="${product.image}" alt="${product.name}">
+                    <div class="product-info">
+                        <h5>${product.name}</h5>
+                        <p>${product.description}</p>
+                        <p class="price">₱${product.price}</p>
+                    </div>
+                </div>
+            `;
+            productContainer.insertAdjacentHTML('beforeend', card);
+        });
+    }
+    renderProducts();
+
+    // PRODUCT DETAILS MODAL LOGIC
+    productContainer.addEventListener('click', function(e) {
+        const card = e.target.closest('.js-product-card');
+        if (card) {
+            const index = card.getAttribute('data-index');
+            const product = products[index];
+
+            // Fill modal
+            modalProductImg.src = product.image;
+            modalProductName.textContent = product.name;
+            modalProductPrice.textContent = `₱${product.price}`;
+            modalProductDesc.textContent = product.description;
+            modalSellerName.textContent = product.seller;
+            modalSellerContact.textContent = product.messenger || 'No contact info';
+
+            // Messenger/contact logic
+            contactSellerBtn.onclick = () => {
+                if (product.messenger) {
+                    window.open(`https://m.me/${product.messenger}`, '_blank');
+                } else {
+                    alert('No contact info available.');
+                }
+            };
+
+            // Add to List logic
+            addToListBtn.onclick = () => {
+                alert('Added "' + product.name + '" to your list!');
+            };
+
+            // Show modal
+            detailsModal.style.display = 'flex';
+        }
+    });
+
+    // Close modal
+    closeDetailsModal.addEventListener('click', () => {
+        detailsModal.style.display = 'none';
+    });
+    detailsModal.addEventListener('click', (e) => {
+        if (e.target === detailsModal) {
+            detailsModal.style.display = 'none';
+        }
     });
 
     // Image preview in form
@@ -128,29 +221,36 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('description').addEventListener('input', function () {
         document.getElementById('previewDescription').textContent = this.value || 'Product description will appear here.';
     });
-
+    // Live preview Location
+    document.getElementById('sellerLoc').addEventListener('change', function () {
+        document.getElementById('previewLocation').textContent = this.value || 'Your Location will appear here.';
+    });
+    // Live preview Contact
+    document.getElementById('contactInfo').addEventListener('input', function () {
+        document.getElementById('previewContact').textContent = this.value || 'Your Contact will appear here.';
+    });
     // Handle form submission
     document.getElementById('productForm').addEventListener('submit', function (e) {
         e.preventDefault();
 
         const imageFile = document.getElementById('image').files[0];
         const name = document.getElementById('name').value || 'Untitled Product';
+        const description = document.getElementById('description').value || 'No description provided';
         const priceValue = document.getElementById('price').value || '0.00';
-        const price = `₱${priceValue}`;
+        const sellerLoc = document.getElementById('sellerLoc').value || 'Your Location';
+        const contactInfo = document.getElementById('contactInfo').value || 'Your Contact';
 
-        // Create new product card matching design
-        const productCard = `
-            <div class="product-card">
-                <img class="product-img" src="${imageFile ? URL.createObjectURL(imageFile) : 'placeholder.jpg'}" alt="${name}">
-                <div class="product-info">
-                    <h5>${name}</h5>
-                    <p class="price">${price}</p>
-                </div>
-            </div>
-        `;
-
-        // Add to Today's Picks
-        productContainer.insertAdjacentHTML('beforeend', productCard);
+        // Add to products array and re-render
+        products.push({
+            image: imageFile ? URL.createObjectURL(imageFile) : 'placeholder.jpg',
+            name,
+            description,
+            price: priceValue,
+            seller: 'You',
+            messenger: contactInfo, // Store contact in messenger field, or add a new field if you like
+            location: sellerLoc
+        });
+        renderProducts();
 
         // Hide form, show home
         productFormSection.style.display = 'none';
@@ -163,5 +263,19 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('previewTitle').textContent = 'Product Title';
         document.getElementById('previewPrice').textContent = '₱0.00';
         document.getElementById('previewDescription').textContent = 'Product description will appear here.';
+        document.getElementById('previewLocation').textContent = 'Your Location will appear here.';
+        document.getElementById('previewContact').textContent = 'Your Contact will appear here.';
+    });
+    // Mobile menu logic
+    const menuIcon = document.querySelector('.menu-icon');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuIcon.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    // close menu if clicked outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuIcon.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+        }
     });
 });

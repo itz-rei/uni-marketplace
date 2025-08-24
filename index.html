@@ -7,83 +7,95 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="queries.css">
     <link rel="stylesheet" href="product-form.css">
-
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="container">
         <!-- NAVIGATION -->
-        <header class="header">
-            <nav class="navbar">
-                <a href=""><img class="logo" src="images/logo-unimart-removebg-preview.png" alt="unimart logo"></a>
-                <div class="search-bar-container">
-                    <form class="search-form">
-                        <input type="text" class="search-input js-search-input" placeholder="What are you looking for?">
-                        <button class="search-button"><img src="images/search-outline.svg" alt="Search icon"></button>
-                    </form>
+        <nav class="navbar">
+            <a href=""><img class="logo" src="images/logo-unimart-removebg-preview.png" alt="unimart logo"></a>
+            <div class="search-bar-container">
+                <form class="search-form">
+                    <input type="text" class="search-input js-search-input" placeholder="What are you looking for?">
+                    <button class="search-button"><img src="images/search-outline.svg" alt="Search icon"></button>
+                </form>
+            </div>
+            <ul class="nav-menu">
+                <li><a class="nav-link " href="">Home</a></li>
+                <li><a class="nav-link">About</a></li>
+                <li><a class="nav-link"><ion-icon class="cart-icon js-cart-icon" name="cart-outline"></ion-icon></a></li>
+                <li><a class="btn btn-primary-outline">My Profile</a></li>
+            </ul>
+            <!-- Mobile Hamburger Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#">About</a>
+                <a href="#">My Activity</a>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="menu-icon">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </nav>
+        <!-- main section -->
+        <div id="temp">
+            <header class="header">
+                <section class="hero-heading">
+                    <h1><span class="highlight highlight-primary">Everything You Need</span>—All in <br> One App 📱</h1>
+                    <p class="hero-paragraph">Skip the hassle. Find products near you and support your campus vendors with ease.</p>
+                    <div class="cta-btn">
+                        <a class="h-btn loc-primary" href="#">Track Near Vendor📍</a>
+                        <a class="h-btn sell-primary js-add-product-btn" href="#productFormSection">Sell a product here</a>
+                    </div>
+                </section>
+            </header>
+            <section id="home-section">
+                <div class="categories-section">
+                    <h2>Categories</h2>
+                    <div class="categories-container">
+                        <div class="category-card">
+                            <img src="images/foodNBeverages.png" alt="Food & Beverages">
+                            <p>Food & Beverages</p>
+                        </div>
+                            <div class="category-card">
+                            <img src="images/hand-made.png" alt="Handmade Products">
+                            <p>Handmade</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="images/school-bag.png" alt="School Supplies">
+                            <p>School Supplies</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="images/beach-accessories.png" alt="Clothing">
+                            <p>Clothing</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="images/personal-care.png" alt="Personal Care">
+                            <p>Personal Care</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="images/sport_4293307.png" alt="Sports & Outdoors">
+                            <p>Sports & Outdoors</p>
+                        </div>
+                        <div class="category-card">
+                            <img src="images/elec&gadgets.png" alt="">
+                            <p>Electronics & Gadgets</p>
+                        </div>
+                    </div>
                 </div>
-                <ul class="nav-menu">
-                    <li><a class="nav-link js-home-btn" href="index.html">Home</a></li>
-                    <li><a class="nav-link">About</a></li>
-                    <li><a class="nav-link"><ion-icon class="cart-icon" name="cart-outline"></ion-icon></a></li>
-                    <li><a class="btn btn-primary-outline">My Profile</a></li>
-                </ul>
-                <div class="menu-icon">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-            </nav>
-            <section class="hero-heading">
-                <h1><span class="highlight highlight-primary">Everything You Need</span>—All in <br> One App 📱</h1>
-                <p class="hero-paragraph">Skip the hassle. Find products near you and support your campus vendors with ease.</p>
-                <div class="cta-btn">
-                    <a class="loc-btn loc-primary" href="">Track Near Vendor📍</a>
-                    <a class="loc-btn sell-primary js-add-product-btn" href="">Sell a product here</a>
+                <div id="product-section-container" class="product-section">
+                    <h3>Today's Picks</h3>
+                    <div id="todaysPick" class="product-container js-product-container">
+                        
+                    </div>
                 </div>
             </section>
-        </header>
-        <!-- main section -->
-        <section id="home-section">
-            <div class="categories-section">
-                <h2>Categories</h2>
-                <div class="categories-container">
-                    <div class="category-card">
-                        <img src="images/foodNBeverages.png" alt="Food & Beverages">
-                        <p>Food & Beverages</p>
-                    </div>
-                        <div class="category-card">
-                        <img src="images/hand-made.png" alt="Handmade Products">
-                        <p>Handmade</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="images/school-bag.png" alt="School Supplies">
-                        <p>School Supplies</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="images/beach-accessories.png" alt="Clothing">
-                        <p>Clothing</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="images/personal-care.png" alt="Personal Care">
-                        <p>Personal Care</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="images/sport_4293307.png" alt="Sports & Outdoors">
-                        <p>Sports & Outdoors</p>
-                    </div>
-                </div>
-            </div>
-            <div class="product-section">
-            <h3>Today's Picks</h3>
-            <div id="todaysPick" class="product-container js-product-container"></div>
-            </div>
-        </section>
-        <!-- ADD PRODUCT FORM -->
-        <section id="productFormSection">
-            <div class="product-spa">
+            <!-- ADD PRODUCT FORM -->
+            <section id="productFormSection">
                 <div class="product-form-container js-product-form">
                     <!-- LEFT: Preview -->
                     <div class="preview-container">
@@ -93,6 +105,8 @@
                         <h4 id="previewTitle">Product Title</h4>
                         <p id="previewPrice">₱0.00</p>
                         <p id="previewDescription">Product description will appear here.</p>
+                        <p id="previewLocation" >Your Location will appear here.</p>
+                        <p id="previewContact" >Your Contact will appear here.</p>
                     </div>
                     <!-- RIGHT: Form -->
                     <form id="productForm" class="product-form" action="">
@@ -108,69 +122,122 @@
                         <input type="number" id="price" placeholder="Enter the price" min="1" required>
 
                         <label for="description">Product Description:</label>
-                        <textarea id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
+                        <textarea id="description" name="description" maxlength="250" rows="3" placeholder="Enter product description" required></textarea>
 
                         <label for="category">Category:</label>
                         <select name="category" id="category" required>
-                            <option value="">Select Category</option>
-                            <option>Food & Beverages</option>
-                            <option>Handmade</option>
-                            <option>School Supplies</option>
-                            <option>Clothing</option>
-                            <option>Personal Care</option>
-                            <option>Sports & Outdoors</option>
+                            <option value=""disabled selected hidden>Select Category</option>
+                            <option value="food&beverage">Food & Beverages</option>
+                            <option value="handmade">Handmade</option>
+                            <option value="schoolSupplies">School Supplies</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="personal care">Personal Care</option>
+                            <option value="sports&outdoors">Sports & Outdoors</option>
+                            <option value="electronics&gadgets">Electronics & Gadgets</option>
                         </select>
+                        <label for="sellerLoc">Location:</label>
+                        <select name="sellerLoc" id="sellerLoc">
+                            <option value=""disable selected hidden>Your Location</option>
+                            <option value="room1">1</option>
+                            <option value="room2">2</option>
+                            <option value="room3">3</option>
+                            <option value="room4">4</option>
+                            <option value="room5">5</option>
+                            <option value="room6">6</option>
+                            <option value="room7">7</option>
+                            <option value="room8">8</option>
+                            <option value="room9">9</option>
+                            <option value="room10">10</option>
+                            <option value="room11">11</option>
+                            <option value="room12">12</option>
+                            <option value="room13">13</option>
+                            <option value="room14">14</option>
+                            <option value="room15">15</option>
+
+                        </select>
+                        <label for="contactInfo">Contact:</label>
+                        <input id="contactInfo" type="number" placeholder="+63">
+
                         <button class="post-product-btn" type="submit">Post Product</button>
                     </form>
                 </div>
-            </div>
-        </section>
-    </div>
-    <!-- footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">
-                <h5>Unimart Campus Marketplace</h5>
-                <p>© 2025 All Rights Reserved</p>
-            </div>
-            <div class="footer-links">
-                <h5>Quick Links</h5>
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-            </div>
-            <div class="footer-contact">
-                <h5>Contact Information</h5>
-                <p>Email: campusmarket@ustl.edu</p>
-                <p>Phone: 0912-345-6789</p>
-            </div>
-            <div class="footer-social">
-                <h5>Social Medias</h5>
-                <a href="#"><img src="images/3225194_app_facebook_logo_media_popular_icon.svg" alt="Facebook"></a>
-                <a href="#"><img src="images/1298747_instagram_brand_logo_social media_icon.svg" alt="Instagram"></a>
-                <a href="#"><img src="images/1851693_media_network_social_social media_video_icon.svg" alt="YouTube"></a>
-            </div>
-            <div class="footer-language">
-                <label for="language">Language:</label>
-                <select id="language">
-                    <option value="en">English</option>
-                    <option value="tl">Tagalog</option>
-                </select>
+            </section>
+        </div>
+        
+        <!-- Replace the whole #product-details-section with this modal, place before </body> -->
+        <div id="productDetailsModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content product-details-modal">
+                <span class="close-modal" id="closeDetailsModal">&times;</span>
+                <div class="details-flex">
+                    <div class="modal-image-col">
+                        <img id="modalProductImg" src="" alt="Product Image">
+                    </div>
+                    <div class="modal-info-col">
+                        <div id="modal-product-details">
+                            <h2 id="modalProductName"></h2>
+                        <p class="price" id="modalProductPrice"></p>
+                        <p class="description" id="modalProductDesc"></p>
+                        <p class="seller-info"><b>Seller:</b> <span id="modalSellerName"></span></p>
+                        <p class="seller-info"><b>Contact:</b> <span id="modalSellerContact"></span></p>
+                        </div>
+
+                        <div class="modal-buttons">
+                            <button id="addToListBtn" class="add-list">➕ Add to List</button>
+                            <button id="contactSellerBtn" class="message-seller">💬 Contact Seller</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-    <!-- mobile-bottom-nav -->
-    <nav class="bottom-nav">
-        <ul class="bottom-nav-menu">
-            <li><a href="#"><img src="images/home.svg" alt=""><span>Home</span></a></li>
-            <li><a href="#"><img src="images/search-outline.svg" alt=""><span>Search</span></a></li>
-            <li><a href="#"><img src="images/add-outline.svg" alt=""><span>Add</span></a></li>
-            <li><a href="#"><img src="images/notifications-outline.svg" alt=""><span>Notif</span></a></li>
-            <li><a href="#"><img src="images/user-outline.svg" alt=""><span>Profile</span></a></li>
-        </ul>
-    </nav>
+        <!-- footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h5>Unimart Campus Marketplace</h5>
+                    <p>© 2025 All Rights Reserved</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="footer-contact">
+                    <h5>Contact Information</h5>
+                    <p>Email: campusmarket@ustl.edu</p>
+                    <p>Phone: 0912-345-6789</p>
+                </div>
+                <div class="footer-social">
+                    <h5>Social Medias</h5>
+                    <a href="#"><img src="images/3225194_app_facebook_logo_media_popular_icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/1298747_instagram_brand_logo_social media_icon.svg" alt="Instagram"></a>
+                    <a href="#"><img src="images/1851693_media_network_social_social media_video_icon.svg" alt="YouTube"></a>
+                </div>
+                <div class="footer-language">
+                    <label for="language">Language:</label>
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="tl">Tagalog</option>
+                    </select>
+                </div>
+            </div>
+        </footer>
+
+        <!-- mobile-bottom-nav -->
+        <nav class="bottom-nav">
+            <ul class="bottom-nav-menu">
+                <li><a href="#"><img src="images/home.svg" alt=""><span>Home</span></a></li>
+                <li><a href="#"><img src="images/search-outline.svg" alt=""><span>Search</span></a></li>
+                <li><a href="#"><img src="images/add-outline.svg" alt=""><span>Add</span></a></li>
+                <li><a href="#"><img src="images/cart-outline (1).svg" alt=""><span>Cart</span></a></li>
+                <li><a href="#"><img src="images/user-outline.svg" alt=""><span>Profile</span></a></li>
+            </ul>
+        </nav>
+        </div>
+
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>

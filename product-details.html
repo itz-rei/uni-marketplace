@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product-details.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Product Container -->
+<div class="product-container">
+  <!-- Left: Product Image -->
+  <div class="product-image">
+    <img src="images/product-lists/soccer-ball.jpg" alt="Product Image">
+  </div>
+
+  <!-- Right: Product Details -->
+  <div class="product-details">
+    <h3 class="product-name">Ballpen</h3>
+    <p class="seller-name">Seller: John Doe</p>
+    <p class="product-price">₱500</p>
+    <div class="product-actions">
+      <button class="add-to-list-btn">Add to List</button>
+      <a href="https://m.me/johndoe" target="_blank" class="contact-seller-btn">Contact Seller</a>
+    </div>
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+.product-container {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 600px;
+  align-items: center;
+}
+
+.product-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.seller-name, .product-price {
+  margin: 0;
+  color: #555;
+}
+
+.product-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.add-to-list-btn, .contact-seller-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.add-to-list-btn {
+  background-color: #007bff;
+}
+
+.contact-seller-btn {
+  background-color: #28a745;
+}
+</style>
+
+    
+<script src="product-details.js"></script>
+</body>
+</html>

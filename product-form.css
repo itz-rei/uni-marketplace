@@ -5,73 +5,86 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+html{
+    font-size: 62.5%;
+}
+#productFormSection {
 
+}
 .product-form-container {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 90%;
+    padding: 2rem;
     background: #fff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 100px 0px;
+    margin: 10rem auto;
 }
-
 /* Preview */
 .preview-container {
     flex: 1;
     background: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 6px;
-    padding: 15px;
+    padding: 1.5rem;
     text-align: center;
 }
 .preview-container h3{
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+}
+#previewPrice{
+    color: #ff5722;
+}
+#previewTitle, #previewPrice, #previewDescription, #previewLocation, #previewContact{
+    margin-bottom: 1rem;
 }
 .preview-container img {
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    max-height: 25rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
     border-radius: 6px;
 }
 
 .placeholder-text {
     color: #888;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
 }
 .image-div{
-    height: 100px;
+    height: 10rem;
 }
 /* Form */
 .product-form {
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-width: 150px;
 }
 
 .product-form h2 {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     color: #333;
     text-align: center;
+    font-size: 3.8rem;
 }
 
 .product-form label {
-    margin-bottom: 5px;
-    font-size: 16px;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
 }
 
 .product-form input,
 .product-form select,
 .product-form textarea {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
     background: #eee;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 1.4rem;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -84,16 +97,70 @@
 }
 
 .post-product-btn {
-    padding: 10px;
+    padding: 1rem;
     background: #7494ec;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1.4rem;
     transition: background-color 0.3s;
 }
 
 .post-product-btn:hover {
     background-color: #5849c6;
+}
+
+/*----------------- MEDIA QUERIES ----------------- */
+/* Mobile Small (extra small phones) */
+@media (max-width: 480px) {
+    /* Styles for small mobile */
+    html{
+        font-size: 43%;
+    }
+    h2{
+        font-size: 3.4rem;
+    }
+}
+
+/* Mobile Regular */
+@media (min-width: 481px /*480px*/) and (max-width: 47.93rem/*767px*/) {
+    /* Styles for mobile phones */
+    html{
+        font-size: 43%;
+    }
+    h2{
+        font-size: 4.5rem;
+}
+
+/* Tablet Portrait */
+@media (min-width: 48rem/*768px*/) and (max-width: 61.93rem/*991px*/) {
+    /* 8px / 16 = 50% */
+    /* Styles for tablets in portrait */
+    html{
+        font-size: 48%;
+    }
+}
+
+/* Tablet Landscape / Small Laptop */
+@media (min-width: 62rem /*992px*/) and (max-width: 74.93rem/*1199px*/) {
+    /* 9px / 16 =  56%*/
+    /* Styles for tablets landscape and small laptops */
+    html{
+        font-size: 56%;
+    }
+
+}
+
+/* Standard Laptop / Desktop */
+@media (min-width: 75rem/*1200px*/) and (max-width: 89.93rem/*1439px*/) {
+    /* 10px / 16 =  62%*/
+    /* Styles for standard laptops and desktops */
+    
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    /* Styles for large screens */
+}
 }
