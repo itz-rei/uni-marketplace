@@ -130,9 +130,9 @@ form{
 
 }
 /* register */
-/* .form-box.register{
+.form-box.register{
     visibility: hidden;
-} */
+}
 .container.active .form-box.form-box.register{
     visibility: visible;
 }
