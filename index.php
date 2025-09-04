@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: LogIn.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,17 +119,22 @@
                     <!-- RIGHT: Form -->
                     <form id="productForm" class="product-form" action="">
                         <h2>Listing Product</h2>
-
-                        <label for="image">Select an Image:</label>
-                        <input type="file" id="image" name="image" accept="image/*" required>
-
+                        <div class="input-box-file">
+                            <label for="image" class="file-label">
+                                <ion-icon name="images-outline"></ion-icon>
+                                <span>Upload File</span>
+                            </label>
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                        </div>
                         <label for="name">Title:</label>
                         <input type="text" id="name" placeholder="Enter a product name" required>
 
-                        <label for="price">Price:</label>
+
+                            <label for="price">Price:</label>
                         <input type="number" id="price" placeholder="Enter the price" min="1" required>
 
-                        <label for="description">Product Description:</label>
+
+                            <!-- <label for="description">Product Description:</label> -->
                         <textarea id="description" name="description" maxlength="250" rows="3" placeholder="Enter product description" required></textarea>
 
                         <label for="category">Category:</label>
@@ -135,6 +148,7 @@
                             <option value="sports&outdoors">Sports & Outdoors</option>
                             <option value="electronics&gadgets">Electronics & Gadgets</option>
                         </select>
+
                         <label for="sellerLoc">Location:</label>
                         <select name="sellerLoc" id="sellerLoc">
                             <option value=""disable selected hidden>Your Location</option>
@@ -153,10 +167,10 @@
                             <option value="room13">13</option>
                             <option value="room14">14</option>
                             <option value="room15">15</option>
-
                         </select>
+
                         <label for="contactInfo">Contact:</label>
-                        <input id="contactInfo" type="number" placeholder="+63">
+                        <input id="contactInfo" type="text" placeholder="Phone Number">
 
                         <button class="post-product-btn" type="submit">Post Product</button>
                     </form>
@@ -175,14 +189,28 @@
                     <div class="modal-info-col">
                         <div id="modal-product-details">
                             <h2 id="modalProductName"></h2>
-                        <p class="price" id="modalProductPrice"></p>
-                        <p class="description" id="modalProductDesc"></p>
-                        <p class="seller-info"><b>Seller:</b> <span id="modalSellerName"></span></p>
-                        <p class="seller-info"><b>Contact:</b> <span id="modalSellerContact"></span></p>
+                            <p class="price" id="modalProductPrice"></p>
+                            <p class="description" id="modalProductDesc"></p>
+                            <p class="seller-info"><b>Seller:</b> <span id="modalSellerName"></span></p>
+                            <p class="seller-info"><b>Contact:</b> <span id="modalSellerContact"></span></p>
                         </div>
-
+                        <div class="product-quantity">
+                            <label for="quantity">Quantity:</label>
+                            <select type="number" name="" id="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
                         <div class="modal-buttons">
-                            <button id="addToListBtn" class="add-list">➕ Add to List</button>
+                            <button id="addToListBtn" class="add-list js-add-to-list-btn" data-product-name="${product.name}">➕ Add to List</button>
                             <button id="contactSellerBtn" class="message-seller">💬 Contact Seller</button>
                         </div>
                     </div>
@@ -237,7 +265,8 @@
         </nav>
         </div>
 
-
+    <script src="data/cartList.js"></script>
+    <script src="data/product.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
